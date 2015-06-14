@@ -24,6 +24,10 @@
 #   show_empty_slots  true
 
 function init --on-event init_battery
+  battery_update_info
+end
+
+function battery_update_info
   if test $OSTYPE = "Darwin"
     battery_update_info_darwin
   else
@@ -121,4 +125,6 @@ function battery -a \
       end
     end
   end
+  
+  battery_update_info
 end
